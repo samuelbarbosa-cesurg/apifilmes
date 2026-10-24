@@ -1,0 +1,36 @@
+{
+  "name": "apifilmes",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000a\u0000p\u0000i\u0000f\u0000i\u0000l\u0000m\u0000e\u0000s\u0000\r\u0000 \u0000",
+  "homepage": "https://github.com/matheusbenvenutidev/apifilmes#readme",
+  "bugs": {
+    "url": "https://github.com/matheusbenvenutidev/apifilmes/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matheusbenvenutidev/apifilmes.git"
+  },
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "exemplo": "node src/exemplo-repository.js",
+    "lint": "eslint src"
+  },
+  "keywords": [
+    "express",
+    "api",
+    "tarefas"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "nodemon": "^3.1.14"
+  }
+}
