@@ -1,3 +1,4 @@
+import { isDataView } from "util/types";
 import * as filmeRepository from "../repositories/filmeRepository.js";
 
 export async function listarFilmes(filtros) {
@@ -59,4 +60,8 @@ export async function cadastrarFilme(filme) {
 	};
 
 	return await filmeRepository.cadastrar(novoFilme);
+}
+
+export async function deletarFilme(id) {
+	return await filmeRepository.deletarFilme(id);
 }

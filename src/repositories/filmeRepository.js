@@ -15,3 +15,16 @@ export async function cadastrar(filme) {
 	await fs.writeFile(caminhoArquivoFilmes, JSON.stringify(filmes, null, 2));
 	return filme;
 }
+
+export async function deletarFilme(id) {
+	const filmes = await listar();
+	const filme = filmes.find(filme => filme.id === id);
+	if (!filme){
+		return null;
+	}
+
+	const novalista = filmes.filter(filme => filme.id !== id);
+
+	await fs.writeFile(caminhoArquivoFilmes, JSON.stringify(novalista, null, 2));
+	return filme;
+}

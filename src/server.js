@@ -10,7 +10,7 @@ app.use((request, response, next) => {
   response.setHeader("Access-Control-Allow-Origin", "*");
   response.setHeader(
     "Access-Control-Allow-Methods",
-    "GET,OPTIONS",
+    "GET,POST,DELETE,OPTIONS",
   );
   response.setHeader(
     "Access-Control-Allow-Headers",
@@ -29,6 +29,7 @@ app.use(express.json());
 app.get("/filmes", filmeController.listarFilmes);
 app.get("/filmes/:id", filmeController.buscarFilme);
 app.post("/filmes", filmeController.cadastrarFilme);
+app.delete("/filmes/:id", filmeController.deletarFilme);
 
 app.use((req, res, next) => {
   res.status(404).json({
