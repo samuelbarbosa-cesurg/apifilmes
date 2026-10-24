@@ -38,7 +38,7 @@ export async function buscarFilme(request, response){
 export async function cadastrarFilme(request, response){
     try{
         const filme = request.body;
-        
+
         if(filme && Object.keys(filme).length > 0){
             const novoFilme = await filmeLogic.cadastrarFilme(filme);
             return response.status(201).json(novoFilme);
@@ -48,6 +48,12 @@ export async function cadastrarFilme(request, response){
         }
     } catch (error) {
         console.error(`Erro ao cadastrar filme: ${error.message}`);
+
+        if(error instanceof Error){
+            return response.status(400).json({
+                mensagem: error.message,
+            });
+        }
 
         return response.status(500).json({
             mensagem: "Erro interno do servidor",
