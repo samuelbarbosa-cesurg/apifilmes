@@ -1,6 +1,21 @@
 import * as filmeRepository from "../repositories/filmeRepository.js";
-export function listarFilmes() {
-	return filmeRepository.listar();
+
+export async function listarFilmes(filtros) {
+	const filmes = await filmeRepository.listar();
+
+	if(filtros && Object.keys(filtros).length > 0){
+		return filmes.filter(filme => {
+			for (const chave in filtros) {
+				console.log(`Filtrando por ${chave}: ${filtros[chave]}`);
+				if (filme[chave] === undefined || filme[chave].toString().toLowerCase() !== filtros[chave].toString().toLowerCase()) {
+					return false;
+				}
+			}
+			return true;
+		});
+	}
+
+	return filmes;
 }
 
 export async function buscarFilme(id) {

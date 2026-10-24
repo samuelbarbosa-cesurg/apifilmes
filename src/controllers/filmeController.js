@@ -2,11 +2,20 @@ import * as filmeLogic from "../logic/filmeLogic.js";
 
 export async function listarFilmes(request, response) {
     try{
-        const filmes = await filmeLogic.listarFilmes();
+        const filmes = await filmeLogic.listarFilmes(request.query);
+
+        if(filmes.length === 0){
+            return response.status(404).json({mensagem: "Nenhum filme encontrado"})
+        }
 
         return response.status(200).json(filmes);
     } catch (error) {
         console.error(`Erro ao listar filmes: ${error.message}`);
+        if(error instanceof Error) {
+            return response.status(400).json({
+                mensagem: error.message,
+            });
+        }
 
         return response.status(500).json({
             mensagem: "Erro interno do servidor",
@@ -28,6 +37,12 @@ export async function buscarFilme(request, response){
         }
     } catch (error) {
         console.error(`Erro ao listar filmes: ${error.message}`);
+
+        if(error instanceof Error) {
+            return response.status(400).json({
+                mensagem: error.message,
+            });
+        }
 
         return response.status(500).json({
             mensagem: "Erro interno do servidor",
