@@ -1,14 +1,14 @@
 {
   "name": "apifilmes",
   "version": "1.0.0",
-  "description": "��#\u0000 \u0000a\u0000p\u0000i\u0000f\u0000i\u0000l\u0000m\u0000e\u0000s\u0000\r\u0000 \u0000",
-  "homepage": "https://github.com/matheusbenvenutidev/apifilmes#readme",
+  "description": "API de filmes",
+  "homepage": "https://github.com/amuelbarbosa-cesurg/apifilmes#readme",
   "bugs": {
-    "url": "https://github.com/matheusbenvenutidev/apifilmes/issues"
+    "url": "https://github.com/amuelbarbosa-cesurg/apifilmes/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matheusbenvenutidev/apifilmes.git"
+    "url": "git+https://github.com/amuelbarbosa-cesurg/apifilmes.git"
   },
   "type": "module",
   "main": "index.js",

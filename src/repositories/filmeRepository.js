@@ -1,29 +1,17 @@
-let filmes = [
-	{
-		"id": 1,
-		"titulo": "Gato de botas",
-		"genero": "Ação",
-		"ano": "2000",
-	},
-	{
-		"id": 2,
-		"titulo": "Seven - Os Sete Crimes Capitais",
-		"genero": "Crime",
-		"ano": "1995",
-	},
-	{
-		"id": 3,
-		"titulo": "Missão impossível",
-		"genero": "Ação",
-		"ano": "2008",
-	}
-];
+import fs from "fs/promises";
+import path from "path";
+
+const caminhoArquivoFilmes = path.resolve("src/data/filmes.json");
 
 export async function listar() {
-	return filmes;
+	const dados = await fs.readFile(caminhoArquivoFilmes, "utf-8");
+	return JSON.parse(dados);
 }
 
 export async function cadastrar(filme) {
+	const filmes = await listar();
 	filmes.push(filme);
+
+	await fs.writeFile(caminhoArquivoFilmes, JSON.stringify(filmes, null, 2));
 	return filme;
 }
