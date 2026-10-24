@@ -28,6 +28,7 @@ app.use(express.json());
 
 app.get("/filmes", filmeController.listarFilmes);
 app.get("/filmes/:id", filmeController.buscarFilme);
+app.post("/filmes", filmeController.cadastrarFilme);
 
 app.use((req, res, next) => {
   res.status(404).json({
